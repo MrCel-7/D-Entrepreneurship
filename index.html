@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENDOL DURIAN - Minuman Tradisional dengan Rasa Durian Autentik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FFA500;
+            --secondary: #654321;
+            --light: #FFF5E6;
+            --dark: #333;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/background.png');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Menu Section */
+        .menu {
+            background-color: var(--light);
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .menu-item-content {
+            padding: 20px;
+        }
+        
+        .menu-item-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .menu-item-title h3 {
+            color: var(--secondary);
+        }
+        
+        .menu-item-title span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial {
+            padding: 30px;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        /* Locations */
+        .locations {
+            background-color: var(--light);
+        }
+        
+        .location-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .location-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .location-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .location-card p {
+            margin-bottom: 10px;
+        }
+        
+        .location-card i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        /* Franchise */
+        .franchise-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Cendol Durian Logo">
+                <div class="logo-text">CENDOL <span>DURIAN</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#locations">Lokasi</a></li>
+                    <li><a href="#franchise">Waralaba</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>CENDOL DURIAN AUTENTIK</h1>
+            <p>Nikmati kelezatan cendol tradisional dengan cita rasa durian asli yang menggugah selera. Minuman segar dengan harga terjangkau untuk semua kalangan.</p>
+            <a href="#menu" class="btn">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Kami</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Kelezatan Tradisional dengan Sentuhan Modern</h3>
+                    <p>CENDOL DURIAN adalah usaha minuman tradisional yang menggabungkan kelezatan cendol dengan cita rasa durian autentik. Sebagai jenis usaha kuliner jalanan, kami menyediakan layanan dine in, take away, dan pesan antar untuk memenuhi kebutuhan pelanggan yang beragam.</p>
+                    <p>Manfaat utama usaha ini adalah menyediakan minuman segar khas Indonesia yang menggugah selera, sekaligus berkontribusi dalam meningkatkan ekonomi UMKM lokal. Dengan konsep yang mudah diakses dan harga terjangkau, kami berkomitmen menghadirkan pengalaman kuliner tradisional yang tak terlupakan.</p>
+                    <p>Produk kami menggunakan bahan-bahan berkualitas dengan proses pembuatan yang higienis untuk menjamin kepuasan pelanggan.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/about.png" alt="Cendol Durian">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section menu" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu Kami</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="images/menu1.png" alt="Cendol Durian Original">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Cendol Durian Original</h3>
+                            <span>Rp 10.000</span>
+                        </div>
+                        <p>Cendol tradisional dengan durian asli pilihan, disajikan dengan es serut dan gula merah cair.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/menu2.png" alt="Cendol Durian Special">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Cendol Durian Special</h3>
+                            <span>Rp 15.000</span>
+                        </div>
+                        <p>Cendol durian dengan tambahan ketan hitam, kacang hijau, dan ekstra durian.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/menu3.png" alt="Cendol Durian Jumbo">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Cendol Durian Jumbo</h3>
+                            <span>Rp 20.000</span>
+                        </div>
+                        <p>Porsi besar untuk dinikmati bersama, dengan topping lengkap dan ekstra durian.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimoni Pelanggan</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Cendol Durian ini benar-benar unik! Perpaduan cendol yang lembut dengan durian yang legit bikin nagih. Harganya juga sangat terjangkau untuk kualitas seperti ini."</p>
+                    <p class="testimonial-author">- Andi, Mahasiswa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="section locations" id="locations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lokasi Kami</h2>
+            </div>
+            <div class="location-cards">
+                <div class="location-card">
+                    <h3>Gerai Utama</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Kampus No. 123, Depok</p>
+                    <p><i class="fas fa-clock"></i> Setiap hari 10.00 - 22.00</p>
+                    <p><i class="fas fa-phone"></i> 0812-3456-7890</p>
+                </div>
+                <div class="location-card">
+                    <h3>Gerai Cabang</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Sudirman No. 456, Jakarta Pusat</p>
+                    <p><i class="fas fa-clock"></i> Senin-Jumat 08.00 - 20.00</p>
+                    <p><i class="fas fa-phone"></i> 0812-9876-5432</p>
+                </div>
+                <div class="location-card">
+                    <h3>Pesan Online</h3>
+                    <p><i class="fas fa-mobile-alt"></i> Tersedia di:</p>
+                    <p><i class="fas fa-shopping-bag"></i> GoFood, GrabFood, ShopeeFood</p>
+                    <p><i class="fas fa-hashtag"></i> @cendoldurian.id</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Franchise Section -->
+    <section class="section" id="franchise">
+        <div class="container">
+            <div class="section-title">
+                <h2>Peluang Waralaba</h2>
+            </div>
+            <div class="franchise-form">
+                <h3 style="text-align: center; margin-bottom: 20px; color: var(--secondary);">Minat Jadi Mitra Kami?</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Kota</label>
+                        <input type="text" id="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan Tambahan</label>
+                        <textarea id="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Kirim Permohonan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+            </div>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p>Untuk informasi lebih lanjut, silakan hubungi kami melalui:</p>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <p>0812-3456-7890</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <p>info@cendoldurian.id</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
+                    <p>Jl. Raya Kampus No. 123, Depok</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>CENDOL DURIAN adalah usaha minuman tradisional yang menggabungkan kelezatan cendol dengan cita rasa durian autentik.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li><a href="#">Cendol Durian Original</a></li>
+                        <li><a href="#">Cendol Durian Special</a></li>
+                        <li><a href="#">Cendol Durian Jumbo</a></li>
+                        <li><a href="#">Topping Tambahan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Lokasi</h3>
+                    <ul>
+                        <li><a href="#">Gerai Utama Depok</a></li>
+                        <li><a href="#">Gerai Cabang Jakarta</a></li>
+                        <li><a href="#">Pesan Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CENDOL DURIAN. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
