@@ -3,703 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CENDOL DURIAN - Minuman Tradisional dengan Rasa Durian Autentik</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="images/logo.png">
+    <title>AGAIN! Thai Tea | Alpukat & Durian Kocok - Segarkan Harimu!</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        :root {
-            --primary: #FFA500;
-            --secondary: #654321;
-            --light: #FFF5E6;
-            --dark: #333;
-            --success: #28a745;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+        /* Custom styles to use the Poppins font */
         body {
-            background-color: #f9f9f9;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-        
-        .logo-text {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .logo-text span {
-            color: var(--secondary);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 20px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/background.png');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-            margin-top: 80px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary);
-        }
-        
-        /* About Section */
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--secondary);
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 30px;
-        }
-        
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Menu Section */
-        .menu {
-            background-color: var(--light);
-        }
-        
-        .menu-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .menu-item {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .menu-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .menu-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .menu-item-content {
-            padding: 20px;
-        }
-        
-        .menu-item-title {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        
-        .menu-item-title h3 {
-            color: var(--secondary);
-        }
-        
-        .menu-item-title span {
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            background-color: white;
-        }
-        
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .testimonial {
-            padding: 30px;
-        }
-        
-        .testimonial-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: var(--secondary);
-        }
-        
-        /* Locations */
-        .locations {
-            background-color: var(--light);
-        }
-        
-        .location-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .location-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .location-card h3 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        .location-card p {
-            margin-bottom: 10px;
-        }
-        
-        .location-card i {
-            color: var(--primary);
-            margin-right: 10px;
-        }
-        
-        /* Franchise */
-        .franchise-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--primary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .logo {
-                margin-bottom: 15px;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-text {
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Custom gradient for buttons and highlights */
+        .brand-gradient {
+            background: linear-gradient(to right, #f97316, #ea580c);
+        }
+        .brand-gradient-text {
+            background: linear-gradient(to right, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Cendol Durian Logo">
-                <div class="logo-text">CENDOL <span>DURIAN</span></div>
+<body class="bg-orange-50">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                <img src="images/logo.png" alt="AGAIN! Logo" class="h-16" onerror="this.onerror=null; this.src='https://placehold.co/160x60/FFFFFF/F97316?text=AGAIN!';">
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#locations">Lokasi</a></li>
-                    <li><a href="#franchise">Waralaba</a></li>
-                    <li><a href="#contact">Kontak</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
+            <a href="#order-section" class="brand-gradient text-white font-bold py-2 px-4 rounded-lg shadow-lg hover:scale-105 transition-transform">
+                Pesan Sekarang
+            </a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>CENDOL DURIAN AUTENTIK</h1>
-            <p>Nikmati kelezatan cendol tradisional dengan cita rasa durian asli yang menggugah selera. Minuman segar dengan harga terjangkau untuk semua kalangan.</p>
-            <a href="#menu" class="btn">Lihat Menu</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Tentang Kami</h2>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative text-center text-white py-20 px-6 overflow-hidden">
+             <div class="absolute inset-0 bg-black">
+                <!-- UPDATED: Changed object-contain to object-cover -->
+                <img src="images/bg_cendol.png" alt="Latar belakang minuman segar" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579954115545-199abc131575?q=80&w=2070&auto=format&fit=crop';">
+                <div class="absolute inset-0 bg-black bg-opacity-50"></div>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Kelezatan Tradisional dengan Sentuhan Modern</h3>
-                    <p>CENDOL DURIAN adalah usaha minuman tradisional yang menggabungkan kelezatan cendol dengan cita rasa durian autentik. Sebagai jenis usaha kuliner jalanan, kami menyediakan layanan dine in, take away, dan pesan antar untuk memenuhi kebutuhan pelanggan yang beragam.</p>
-                    <p>Manfaat utama usaha ini adalah menyediakan minuman segar khas Indonesia yang menggugah selera, sekaligus berkontribusi dalam meningkatkan ekonomi UMKM lokal. Dengan konsep yang mudah diakses dan harga terjangkau, kami berkomitmen menghadirkan pengalaman kuliner tradisional yang tak terlupakan.</p>
-                    <p>Produk kami menggunakan bahan-bahan berkualitas dengan proses pembuatan yang higienis untuk menjamin kepuasan pelanggan.</p>
-                </div>
-                <div class="about-image">
-                    <img src="images/about.png" alt="Cendol Durian">
+            <div class="relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-xl">Rasa Segar yang Bikin Minta <span class="text-orange-400">LAGI!</span></h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto drop-shadow-lg">Nikmati kesegaran asli Thai Tea, lembutnya Alpukat Kocok, dan legitnya Durian Kocok yang dibuat spesial untukmu.</p>
+                <div class="mt-8 flex flex-wrap justify-center items-center gap-4">
+                    <a href="https://gofood.co.id/en/jakarta/restaurant/alpukat-kocok-thai-tea-again-meruyung-07290de9-b971-430c-a2f3-968acde06c9d" target="_blank" class="bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600 transition-colors flex items-center gap-2">
+                         <i class="fa-solid fa-motorcycle"></i> GoFood
+                    </a>
+                    <a href="https://spf.shopee.co.id/4q3vQ0cX97" target="_blank" class="bg-orange-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-orange-600 transition-colors flex items-center gap-2">
+                         <i class="fa-solid fa-cart-shopping"></i> ShopeeFood
+                    </a>
+                    <a href="#location" class="bg-white text-orange-600 font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 transition-transform flex items-center">
+                        Lihat Lokasi
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Menu Section -->
-    <section class="section menu" id="menu">
-        <div class="container">
-            <div class="section-title">
-                <h2>Menu Kami</h2>
-            </div>
-            <div class="menu-items">
-                <div class="menu-item">
-                    <img src="images/menu1.png" alt="Cendol Durian Original">
-                    <div class="menu-item-content">
-                        <div class="menu-item-title">
-                            <h3>Cendol Durian Original</h3>
-                            <span>Rp 10.000</span>
+        <!-- Product Showcase Section -->
+        <section id="products" class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Pilihan Favorit Semua</h2>
+                <p class="text-gray-600 mb-12">Dibuat dari bahan-bahan pilihan terbaik.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Menu Item 1: Cendol Durian -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/cendol.png" alt="Gambar Cendol Durian" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Cendol+Durian';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Cendol Durian</h3>
+                            <p class="text-gray-600 text-sm">Perpaduan klasik cendol kenyal dengan manis legitnya daging buah durian asli.</p>
                         </div>
-                        <p>Cendol tradisional dengan durian asli pilihan, disajikan dengan es serut dan gula merah cair.</p>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <img src="images/menu2.png" alt="Cendol Durian Special">
-                    <div class="menu-item-content">
-                        <div class="menu-item-title">
-                            <h3>Cendol Durian Special</h3>
-                            <span>Rp 15.000</span>
+                    <!-- Menu Item 2: Thai Tea -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/thaitea.jpg" alt="Gambar Thai Tea" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Thai+Tea';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Thai Tea</h3>
+                            <p class="text-gray-600 text-sm">Rasa teh asli Thailand yang otentik, dipadukan dengan susu creamy menyegarkan.</p>
                         </div>
-                        <p>Cendol durian dengan tambahan ketan hitam, kacang hijau, dan ekstra durian.</p>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <img src="images/menu3.png" alt="Cendol Durian Jumbo">
-                    <div class="menu-item-content">
-                        <div class="menu-item-title">
-                            <h3>Cendol Durian Jumbo</h3>
-                            <span>Rp 20.000</span>
+                    <!-- Menu Item 3: Green Tea -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/greentea.jpg" alt="Gambar Green Tea" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Green+Tea';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Green Tea</h3>
+                            <p class="text-gray-600 text-sm">Aroma teh hijau khas yang menenangkan, dengan sentuhan manis yang pas.</p>
                         </div>
-                        <p>Porsi besar untuk dinikmati bersama, dengan topping lengkap dan ekstra durian.</p>
+                    </div>
+                    <!-- Menu Item 4: Alpukat Kocok Original -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/ako.jpg" alt="Gambar Alpukat Kocok Original" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Alpukat+Kocok+Original';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Alpukat Kocok Original</h3>
+                            <p class="text-gray-600 text-sm">Rasa asli alpukat mentega premium yang kental dan lumer di mulut.</p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 5: Alpukat Kocok Milo -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/akm.jpg" alt="Gambar Alpukat Kocok Milo" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Alpukat+Kocok+Milo';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Alpukat Kocok Milo</h3>
+                            <p class="text-gray-600 text-sm">Kombinasi sempurna lembutnya alpukat dengan taburan bubuk Milo yang melimpah.</p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 6: Alpukat Kocok Keju -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/akk.jpg" alt="Gambar Alpukat Kocok Keju" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Alpukat+Kocok+Keju';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Alpukat Kocok Keju</h3>
+                            <p class="text-gray-600 text-sm">Sensasi gurih dari parutan keju cheddar yang menyatu dengan manisnya alpukat.</p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 7: Durian Kocok Original -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/dko.jpg" alt="Gambar Durian Kocok Original" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Durian+Kocok+Original';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Durian Kocok Original</h3>
+                            <p class="text-gray-600 text-sm">Untuk pencinta durian sejati! Rasa dan aroma durian asli yang pekat.</p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 8: Durian Kocok Milo -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/dkm.jpg" alt="Gambar Durian Kocok Milo" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Durian+Kocok+Milo';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Durian Kocok Milo</h3>
+                            <p class="text-gray-600 text-sm">Rasa legit durian bertemu dengan manis khas cokelat Milo yang tak terlupakan.</p>
+                        </div>
+                    </div>
+                    <!-- Menu Item 9: Durian Kocok Keju -->
+                    <div class="bg-orange-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="images/dkk.jpg" alt="Gambar Durian Kocok Keju" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFF7ED/f97316?text=Durian+Kocok+Keju';">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Durian Kocok Keju</h3>
+                            <p class="text-gray-600 text-sm">Kombinasi unik manisnya durian dengan topping keju parut yang gurih.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section class="section testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Testimoni Pelanggan</h2>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial">
-                    <p class="testimonial-text">"Cendol Durian ini benar-benar unik! Perpaduan cendol yang lembut dengan durian yang legit bikin nagih. Harganya juga sangat terjangkau untuk kualitas seperti ini."</p>
-                    <p class="testimonial-author">- Andi, Mahasiswa</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Why Choose Us Section -->
+        <section class="py-16" style="background-color: #fff7ed; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%23f97316' fill-opacity='0.1' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v5.13a4 4 0 1 1-2 0V16zM54 56H49v-2h5V49.87a4 4 0 1 1 2 0V54h5v2h-5v5.13a4 4 0 1 1-2 0V56z'%3E%3C/path%3E%3C/svg%3E&quot;);">
+             <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl font-bold text-gray-800 mb-12">Kenapa Pilih AGAIN!?</h2>
+                 <div class="grid md:grid-cols-3 gap-8 text-left">
+                     <div class="flex items-start gap-4">
+                         <div class="brand-gradient text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl flex-shrink-0">
+                             <i class="fa-solid fa-leaf"></i>
+                         </div>
+                         <div>
+                             <h4 class="font-bold text-xl text-gray-800">Bahan Baku Asli</h4>
+                             <p class="text-gray-600">Kami menggunakan daun teh Thailand, buah alpukat dan durian segar pilihan, bukan perasa buatan.</p>
+                         </div>
+                     </div>
+                     <div class="flex items-start gap-4">
+                         <div class="brand-gradient text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl flex-shrink-0">
+                             <i class="fa-solid fa-thumbs-up"></i>
+                         </div>
+                         <div>
+                             <h4 class="font-bold text-xl text-gray-800">Rasa Terjamin</h4>
+                             <p class="text-gray-600">Resep rahasia yang sudah terbukti disukai banyak pelanggan setia kami di GoFood.</p>
+                         </div>
+                     </div>
+                     <div class="flex items-start gap-4">
+                         <div class="brand-gradient text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl flex-shrink-0">
+                              <i class="fa-solid fa-bolt"></i>
+                         </div>
+                         <div>
+                             <h4 class="font-bold text-xl text-gray-800">Cepat & Praktis</h4>
+                             <p class="text-gray-600">Pesan online lewat aplikasi favoritmu, minuman segar langsung diantar ke depan pintu.</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+        </section>
 
-    <!-- Locations Section -->
-    <section class="section locations" id="locations">
-        <div class="container">
-            <div class="section-title">
-                <h2>Lokasi Kami</h2>
-            </div>
-            <div class="location-cards">
-                <div class="location-card">
-                    <h3>Gerai Utama</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Kampus No. 123, Depok</p>
-                    <p><i class="fas fa-clock"></i> Setiap hari 10.00 - 22.00</p>
-                    <p><i class="fas fa-phone"></i> 0812-3456-7890</p>
-                </div>
-                <div class="location-card">
-                    <h3>Gerai Cabang</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Sudirman No. 456, Jakarta Pusat</p>
-                    <p><i class="fas fa-clock"></i> Senin-Jumat 08.00 - 20.00</p>
-                    <p><i class="fas fa-phone"></i> 0812-9876-5432</p>
-                </div>
-                <div class="location-card">
-                    <h3>Pesan Online</h3>
-                    <p><i class="fas fa-mobile-alt"></i> Tersedia di:</p>
-                    <p><i class="fas fa-shopping-bag"></i> GoFood, GrabFood, ShopeeFood</p>
-                    <p><i class="fas fa-hashtag"></i> @cendoldurian.id</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Franchise Section -->
-    <section class="section" id="franchise">
-        <div class="container">
-            <div class="section-title">
-                <h2>Peluang Waralaba</h2>
+        <!-- Order Section -->
+        <section id="order-section" class="py-16 bg-orange-100">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Jangan Tunggu Haus!</h2>
+                <p class="text-gray-600 mb-8 max-w-xl mx-auto">Pesan sekarang juga melalui platform favoritmu dan nikmati kesegarannya!</p>
+                <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+                    <a href="https://gofood.co.id/en/jakarta/restaurant/alpukat-kocok-thai-tea-again-meruyung-07290de9-b971-430c-a2f3-968acde06c9d" target="_blank" class="bg-white rounded-lg p-4 shadow-md hover:shadow-xl transition-shadow w-48 h-20 flex items-center justify-center gap-3">
+                        <img src="https://1000logos.net/wp-content/uploads/2023/01/Gofood-Logo-2016.png" alt="GoFood Logo" class="h-10">
+                    </a>
+                    <a href="https://wa.me/6281213968487" target="_blank" class="bg-white rounded-lg p-4 shadow-md hover:shadow-xl transition-shadow w-48 h-20 flex items-center justify-center gap-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png" alt="WhatsApp Logo" class="h-8">
+                    </a>
+                    <a href="https://spf.shopee.co.id/4q3vQ0cX97" target="_blank" class="bg-white rounded-lg p-4 shadow-md hover:shadow-xl transition-shadow w-48 h-20 flex items-center justify-center gap-3">
+                        <img src="https://www.shopeefood.co.id/_next/static/95a8c8cd35b8f91e6caa136ca9f7b2f2.png" alt="ShopeeFood Logo" class="h-12">
+                    </a>
+                </div>
             </div>
-            <div class="franchise-form">
-                <h3 style="text-align: center; margin-bottom: 20px; color: var(--secondary);">Minat Jadi Mitra Kami?</h3>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Nomor Telepon</label>
-                        <input type="tel" id="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="city">Kota</label>
-                        <input type="text" id="city" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Pesan Tambahan</label>
-                        <textarea id="message" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Kirim Permohonan</button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Hubungi Kami</h2>
+        <!-- Location Section -->
+        <section id="location" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Temukan Kami di Sini</h2>
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                     <div>
+                         <iframe 
+                             src="https://maps.google.com/maps?q=-6.385573848565326,106.7687932342179&z=17&amp;output=embed"
+                             width="100%" 
+                             height="400" 
+                             style="border:0;" 
+                             allowfullscreen="" 
+                             loading="lazy" 
+                             referrerpolicy="no-referrer-when-downgrade"
+                             class="rounded-xl shadow-lg">
+                         </iframe>
+                     </div>
+                     <div class="text-left">
+                        <h3 class="font-bold text-2xl text-gray-800">Alpucok & Thai Tea Again Meruyung</h3>
+                        <p class="text-gray-600 mt-2 mb-4">
+                            <i class="fa-solid fa-location-dot mr-2 text-orange-500"></i>
+                            Jl. Raya Meruyung No.32, Meruyung, Kec. Limo, Kota Depok, Jawa Barat 16515
+                        </p>
+                        <div class="flex items-center text-gray-700">
+                             <i class="fa-solid fa-clock mr-2 text-orange-500"></i>
+                             <span>Buka Setiap Hari: 10:00 - 22:00 WIB</span>
+                        </div>
+                     </div>
+                 </div>
             </div>
-            <div style="text-align: center; margin-bottom: 30px;">
-                <p>Untuk informasi lebih lanjut, silakan hubungi kami melalui:</p>
-            </div>
-            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                <div style="text-align: center;">
-                    <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
-                    <p>0812-3456-7890</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
-                    <p>info@cendoldurian.id</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
-                    <p>Jl. Raya Kampus No. 123, Depok</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+        </section>
+    </main>
+    
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Tentang Kami</h3>
-                    <p>CENDOL DURIAN adalah usaha minuman tradisional yang menggabungkan kelezatan cendol dengan cita rasa durian autentik.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Menu</h3>
-                    <ul>
-                        <li><a href="#">Cendol Durian Original</a></li>
-                        <li><a href="#">Cendol Durian Special</a></li>
-                        <li><a href="#">Cendol Durian Jumbo</a></li>
-                        <li><a href="#">Topping Tambahan</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Lokasi</h3>
-                    <ul>
-                        <li><a href="#">Gerai Utama Depok</a></li>
-                        <li><a href="#">Gerai Cabang Jakarta</a></li>
-                        <li><a href="#">Pesan Online</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Ikuti Kami</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 CENDOL DURIAN. All Rights Reserved.</p>
-            </div>
-        </div>
+    <footer class="brand-gradient text-white text-center p-6">
+        <p>&copy; 2015 AGAIN! Thai Tea. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        // Simple mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-    </script>
 </body>
 </html>
